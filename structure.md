@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     A[智能鱼缸系统 Smart Fish Tank]
 
@@ -20,3 +21,4 @@ graph TD
     A --> F[5 手机App交互 App Interaction]
     F --> F1[要解决的问题：数据上传、远程指令、状态反馈]
     F --> F2[使用器件：ESP8266 WiFi模块、MCU、OLED显示模块(可选)]
+```
