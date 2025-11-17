@@ -31,5 +31,4 @@ graph TB
     F --> F1[Problems solved:<br>• data upload<br>• remote commands<br>• status feedback]:::blue
     F --> F2[ESP8266]:::blue
     F --> F3[MCU]:::blue
-    F --> F4[OLED Display (optional)]:::blue
-```
+    F --> F4[OLED Display optional]:::blue
