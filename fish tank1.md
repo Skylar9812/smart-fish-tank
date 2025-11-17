@@ -1,26 +1,34 @@
 ```mermaid
 graph TB
 
-    %% 统一蓝色背景的样式
-    classDef blue fill:#e8f1ff,stroke:#3c6df0,stroke-width:1.5px,color:#1d2d50;
+    %% 蓝色样式
+    classDef blue fill:#e8f1ff,stroke:#3c6df0,stroke-width:1.4px,color:#1d2d50;
 
-    %% 第一层：系统
-    A[Smart Fish Tank System]:::blue
+    %% 顶层
+    Top[Smart Fish Tank System]:::blue
 
-    %% ---- Oxygenation ----
-    A --> B[1. Oxygenation]:::blue
+    %% --- 强制创建一个“隐藏层”，让 Oxygenation 和 Heating 不在同一水平线上 ---
+    Placeholder1[" "]:::blue
+    Top --> Placeholder1
 
-    B --> B1[Problems solved:<br>• oxygen timing<br>• remote on/off]:::blue
-    B --> B2[Relay]:::blue
-    B --> B3[MCU]:::blue
-    B --> B4[ESP8266]:::blue
+    %% --- 1. Oxygenation ---
+    Placeholder1 --> O1[1. Oxygenation]:::blue
 
-    %% ---- Heating ----
-    A --> C[2. Heating]:::blue
+    O1 --> O1P[Problems solved:<br>• oxygen timing<br>• remote on/off]:::blue
+    O1 --> O2[Relay]:::blue
+    O1 --> O3[MCU]:::blue
+    O1 --> O4[ESP8266]:::blue
 
-    C --> C1[Problems solved:<br>• temperature detection<br>• heating decision<br>• safety control]:::blue
-    C --> C2[DS18B20 Sensor]:::blue
-    C --> C3[Relay]:::blue
-    C --> C4[MCU]:::blue
-    C --> C5[Power Module]:::blue
+    %% --- 再创建一个隐藏层，强制让 Heating 再往下一层 ---
+    Placeholder2[" "]:::blue
+    O1 --> Placeholder2
+
+    %% --- 2. Heating ---
+    Placeholder2 --> H1[2. Heating]:::blue
+
+    H1 --> H1P[Problems solved:<br>• temperature detection<br>• heating decision<br>• safety]:::blue
+    H1 --> H2[DS18B20]:::blue
+    H1 --> H3[Relay]:::blue
+    H1 --> H4[MCU]:::blue
+    H1 --> H5[Power Module]:::blue
 ```
